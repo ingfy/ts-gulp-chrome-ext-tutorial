@@ -1,6 +1,9 @@
+/// <reference path="./custom-typings/gulp-zip.d.ts" />
+
 import gulp = require('gulp');
 import del = require('del');
 import sourcemaps = require('gulp-sourcemaps');
+import zip = require('gulp-zip');
 import typescript = require('gulp-typescript');
 import fs = require('fs');
 import {Server as KarmaServer} from 'karma';
@@ -20,6 +23,16 @@ gulp.task('compile', () => {
 gulp.task('build', ['compile', 'manifest', 'resources', 'loader']);
 
 gulp.task('default', ['build']);
+
+gulp.task('zip', ['build'], () => {
+    let manifest = JSON.parse(fs.readFileSync('build/manifest.json').toString());
+    let packageName = `${manifest.name} v${manifest.version}`;
+    let packageFileName = `${packageName}.zip`;
+    
+    return gulp.src('build/**/*')
+        .pipe(zip(packageFileName))
+        .pipe(gulp.dest('dist'));
+});
 
 function runKarma(singleRun: boolean, cb?: () => void) {    
     new KarmaServer({
