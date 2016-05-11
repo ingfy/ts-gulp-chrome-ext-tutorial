@@ -1,0 +1,16 @@
+{
+	"name": "ts-talk",
+	"description": "StackOverflow code run buttons",
+	"version": "0.0.1",
+	"manifest_version": 2,
+	"permissions": [],
+	"icons": {
+		"128": "resources/icon128.png"
+	},
+	"content_scripts": [{
+        "matches": [
+            "*://*.stackoverflow.com/*"
+        ],
+        "js": ["contentScript.js"]
+    }]
+}

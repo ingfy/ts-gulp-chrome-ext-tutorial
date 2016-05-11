@@ -1,0 +1,1 @@
+// TODO: test applikasjonen! (husk å late som at du skrev testene først)

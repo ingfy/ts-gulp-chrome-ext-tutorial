@@ -1,0 +1,23 @@
+{
+  "name": "ts-talk",
+  "version": "1.0.0",
+  "description": "Chrome Extension demo",
+  "main": "index.js",
+  "scripts": {
+    "test": "gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ingfy/ts-talk.git"
+  },
+  "author": "Yngve Svalestuen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ingfy/ts-talk/issues"
+  },
+  "homepage": "https://github.com/ingfy/ts-talk#readme",
+  "devDependencies": {
+  },
+  "dependencies": {
+  }
+}
