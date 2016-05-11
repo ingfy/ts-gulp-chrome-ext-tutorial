@@ -3,6 +3,8 @@ import del = require('del');
 import sourcemaps = require('gulp-sourcemaps');
 import typescript = require('gulp-typescript');
 import fs = require('fs');
+import {Server as KarmaServer} from 'karma';
+import { join } from 'path';
 import concat = require('gulp-concat');
 
 gulp.task('compile', () => {
@@ -19,9 +21,22 @@ gulp.task('build', ['compile', 'manifest', 'resources', 'loader']);
 
 gulp.task('default', ['build']);
 
+function runKarma(singleRun: boolean, cb?: () => void) {    
+    new KarmaServer({
+        configFile: join(__dirname, './karma.conf.js'),
+        singleRun: singleRun
+    }, cb).start();
+}
+
+gulp.task('test', ['build'], cb => runKarma(true, cb));
+
+gulp.task('test-watch', cb => runKarma(false, cb));
 gulp.task('watch', () => {
     gulp.watch("src/**/*", ['build']);
+    runKarma(false);
 });
+
+
 
 gulp.task('manifest', () => {
     return gulp.src('manifest.json')
