@@ -6,4 +6,4 @@ System.config({
         }
     }
 })
-System.import('app/hello').then(process => process.main());
+System.import('app/processStackOverflow').then(process => process.main());
