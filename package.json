@@ -19,11 +19,13 @@
   "devDependencies": {
     "del": "^2.2.0",
     "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-typescript": "^2.13.3",
     "typescript": "^1.8.10",
     "typings": "^0.8.1"
   },
   "dependencies": {
+    "systemjs": "^0.19.27"
   }
 }
