@@ -1,11 +1,16 @@
 {
     "compilerOptions": {
+        "module": "system",
         "target": "es5",
         "outDir": "build",
+        "sourceMap": false,
         "noImplicitAny": false
     },
     "exclude": [
         "node_modules",
-        "build"
+        "typings/browser.d.ts",
+        "typings/browser",
+        "build",
+        "gulpfile.ts"
     ]
 }
